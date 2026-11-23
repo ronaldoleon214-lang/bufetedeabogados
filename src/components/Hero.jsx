@@ -44,7 +44,7 @@ export default function Hero() {
             </h1>
 
             <p className="mt-6 max-w-xl text-base text-[#FFFDF9]/85 sm:text-lg">
-              Más de 22 años de litigio documentado en materia penal, fiscal, civil, administrativa y amparo. Certeza técnica, discreción y respuesta inmediata ante tribunales locales y federales.
+              Protege tu libertad y tu patrimonio con un abogado litigante con más de 22 años en tribunales. Defensa penal, fiscal y amparo con estrategia clara, discreción y respuesta inmediata.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -55,7 +55,7 @@ export default function Hero() {
                 className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#F6D58E] to-[#DFAA54] px-7 py-4 text-sm font-bold text-[#150508] shadow-xl shadow-[#DFAA54]/25 transition hover:-translate-y-0.5 hover:shadow-[#DFAA54]/40"
               >
                 <MessageCircle className="h-4 w-4" />
-                <span>Agendar consulta por WhatsApp</span>
+                <span>Solicitar consulta confidencial</span>
               </a>
               <a
                 href="#servicios"

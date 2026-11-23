@@ -145,10 +145,10 @@ export default function ContactSection() {
               className="rounded-2xl bg-[#150508] p-6 text-[#FFFDF9] shadow-xl"
             >
               <h3 className="font-display text-xl font-bold text-[#F6D58E]">
-                Inicia tu consulta en 30 segundos
+                Solicita una evaluación de tu caso hoy
               </h3>
               <p className="mt-1 text-xs text-[#FFFDF9]/70">
-                Prepara tu mensaje y conéctate directo por WhatsApp con el despacho.
+                Envíanos tu asunto por WhatsApp para recibir atención directa, confidencial y cotización de representación.
               </p>
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 <input

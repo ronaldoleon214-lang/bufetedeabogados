@@ -1,6 +1,7 @@
 import { MessageCircle } from 'lucide-react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import HiringSection from './components/HiringSection';
 import TrajectorySection from './components/TrajectorySection';
 import PracticeSection from './components/PracticeSection';
 import UrgencySection from './components/UrgencySection';
@@ -10,7 +11,7 @@ import { FIRM_INFO } from './data/firmData';
 
 export default function App() {
   const waFloatUrl = `https://wa.me/${FIRM_INFO.phoneMobileRaw}?text=${encodeURIComponent(
-    'Hola Lic. Manuel Enrique Magaña, solicito información para una consulta jurídica.'
+    'Hola Lic. Manuel Enrique Magaña, quiero evaluar mi caso y contratar asesoría jurídica.'
   )}`;
 
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <Header />
       <main className="flex-1">
         <Hero />
+        <HiringSection />
         <TrajectorySection />
         <PracticeSection />
         <UrgencySection />
