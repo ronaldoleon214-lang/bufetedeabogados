@@ -55,13 +55,13 @@ export default function Hero() {
                 className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#F6D58E] to-[#DFAA54] px-7 py-4 text-sm font-bold text-[#150508] shadow-xl shadow-[#DFAA54]/25 transition hover:-translate-y-0.5 hover:shadow-[#DFAA54]/40"
               >
                 <MessageCircle className="h-4 w-4" />
-                <span>Solicitar consulta confidencial</span>
+                <span>Evaluar mi caso ahora</span>
               </a>
               <a
-                href="#servicios"
+                href={`tel:+${FIRM_INFO.phoneMobileRaw}`}
                 className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-6 py-4 text-sm font-semibold text-[#FFFDF9] backdrop-blur-sm transition hover:border-[#F6D58E] hover:bg-white/10"
               >
-                <span>Explorar áreas de práctica</span>
+                <span>Llamar al despacho</span>
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>

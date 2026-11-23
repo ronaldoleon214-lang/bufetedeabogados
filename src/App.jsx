@@ -36,7 +36,7 @@ export default function App() {
         className="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#F6D58E] to-[#DFAA54] px-4 py-3 text-xs font-bold text-[#150508] shadow-2xl shadow-black/35 transition hover:-translate-y-1 hover:scale-105"
       >
         <MessageCircle className="h-4 w-4" />
-        <span className="hidden sm:inline">WhatsApp directo</span>
+        <span className="hidden sm:inline">Evalúa tu caso aquí</span>
       </a>
     </div>
   );

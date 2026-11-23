@@ -165,14 +165,14 @@ export default function UrgencySection() {
                     className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#F6D58E] to-[#DFAA54] px-6 py-3 text-sm font-bold text-[#150508] shadow-lg transition hover:-translate-y-0.5"
                   >
                     <MessageCircle className="h-4 w-4" />
-                    <span>Escribir por WhatsApp</span>
+                    <span>Activar defensa por WhatsApp</span>
                   </a>
                   <a
                     href={`tel:+${FIRM_INFO.phoneMobileRaw}`}
                     className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-[#F6D58E] hover:bg-white/10"
                   >
                     <PhoneCall className="h-4 w-4" />
-                    <span>Llamar al despacho</span>
+                    <span>Llamar de inmediato</span>
                   </a>
                 </div>
               </motion.div>

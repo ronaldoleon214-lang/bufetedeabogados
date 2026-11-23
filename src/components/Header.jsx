@@ -92,7 +92,7 @@ export default function Header() {
             href="#contacto"
             className="hidden md:inline-flex items-center gap-2 rounded-full bg-[#8E1322] px-5 py-2.5 text-xs font-bold tracking-wide text-[#FFFDF9] transition hover:bg-[#B51B2E] hover:-translate-y-0.5 shadow-md shadow-[#8E1322]/25"
           >
-            <span>Contáctanos</span>
+            <span>Agenda tu consulta</span>
             <ArrowUpRight className="h-4 w-4" />
           </a>
 
