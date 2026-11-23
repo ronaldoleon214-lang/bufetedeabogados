@@ -114,10 +114,10 @@ export default function UrgencySection() {
                 className="relative flex w-full flex-col justify-between overflow-hidden rounded-3xl bg-[#150508] p-8 text-[#FFFDF9] shadow-2xl sm:p-10"
               >
                 <img
-                  src="/img/editorial-despacho.jpg"
+                  src="/img/editorial-libros.jpg"
                   alt=""
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-15"
+                  className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#360810]/90 via-[#150508]/95 to-[#150508]" />
 

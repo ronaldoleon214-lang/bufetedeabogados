@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { FIRM_INFO } from '../data/firmData';
 
@@ -13,6 +14,8 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [activeId, setActiveId] = useState('inicio');
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 140, damping: 24, restDelta: 0.001 });
 
   useEffect(() => {
     const onScroll = () => {
@@ -39,6 +42,10 @@ export default function Header() {
           : 'bg-transparent text-[#FFFDF9] border-b border-white/10'
       }`}
     >
+      <motion.div
+        style={{ scaleX }}
+        className="fixed inset-x-0 top-0 z-50 h-[3px] origin-left bg-gradient-to-r from-[#8E1322] via-[#DFAA54] to-[#F6D58E]"
+      />
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a href="#inicio" className="flex items-center gap-3 group">
           <img

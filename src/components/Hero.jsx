@@ -103,23 +103,48 @@ export default function Hero() {
                   <span>Atención personal directa y confidencial</span>
                 </div>
               </div>
+
+              <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-3.5 text-xs">
+                <span className="font-semibold text-[#F6D58E]">
+                  Cédula desde 2003
+                </span>
+                <span className="text-white/60">Tabasco · Fuero Federal</span>
+              </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Cinta inferior de especialidades */}
-        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-6 text-xs font-bold uppercase tracking-[0.16em] text-[#F6D58E]/80">
-          <span>Penal</span>
-          <span className="h-1 w-1 rounded-full bg-[#DFAA54]" />
-          <span>Delitos Federales</span>
-          <span className="h-1 w-1 rounded-full bg-[#DFAA54]" />
-          <span>Fiscal</span>
-          <span className="h-1 w-1 rounded-full bg-[#DFAA54]" />
-          <span>Juicios de Amparo</span>
-          <span className="h-1 w-1 rounded-full bg-[#DFAA54]" />
-          <span>OIC Pemex</span>
-          <span className="h-1 w-1 rounded-full bg-[#DFAA54]" />
-          <span>Civil &amp; Laboral</span>
+        {/* Cinta animada de especialidades */}
+        <div className="mt-12 overflow-hidden border-t border-white/15 pt-6">
+          <motion.div
+            animate={{ x: ['0%', '-50%'] }}
+            transition={{ repeat: Infinity, ease: 'linear', duration: 22 }}
+            className="flex w-max items-center gap-8 text-xs font-bold uppercase tracking-[0.18em] text-[#F6D58E]/85"
+          >
+            {[
+              'Penal',
+              'Delitos Federales',
+              'Fiscal',
+              'Juicios de Amparo',
+              'OIC Pemex',
+              'Civil & Mercantil',
+              'Laboral',
+              'Administrativo',
+              'Penal',
+              'Delitos Federales',
+              'Fiscal',
+              'Juicios de Amparo',
+              'OIC Pemex',
+              'Civil & Mercantil',
+              'Laboral',
+              'Administrativo',
+            ].map((item, i) => (
+              <span key={`${item}-${i}`} className="flex items-center gap-8 whitespace-nowrap">
+                <span>{item}</span>
+                <span className="h-1.5 w-1.5 rounded-full bg-[#DFAA54]" />
+              </span>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

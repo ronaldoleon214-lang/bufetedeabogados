@@ -48,6 +48,7 @@ export const TIMELINE_STEPS = [
 export const PRACTICE_AREAS = [
   {
     num: '01',
+    category: 'penal',
     title: 'Delitos Federales',
     short: 'Defensa ante fiscalías y juzgados federales',
     desc: 'Defensa técnica ante fiscalías y juzgados federales en carpetas de investigación, audiencias de control y procesos del orden federal.',
@@ -55,6 +56,7 @@ export const PRACTICE_AREAS = [
   },
   {
     num: '02',
+    category: 'penal',
     title: 'Asuntos Penales',
     short: 'Detenciones, audiencias y representación',
     desc: 'Asistencia inmediata en detenciones, audiencias iniciales, medidas cautelares y representación estratégica de imputados o víctimas en Tabasco.',
@@ -62,6 +64,7 @@ export const PRACTICE_AREAS = [
   },
   {
     num: '03',
+    category: 'fiscal',
     title: 'Asuntos Administrativos',
     short: 'Multas, clausuras y juicios de nulidad',
     desc: 'Impugnación de multas, clausuras, sanciones administrativas y juicios de nulidad ante autoridades estatales y federales.',
@@ -69,6 +72,7 @@ export const PRACTICE_AREAS = [
   },
   {
     num: '04',
+    category: 'fiscal',
     title: 'Asuntos Fiscales',
     short: 'Créditos fiscales y auditorías',
     desc: 'Defensa ante créditos fiscales, facultades de comprobación, auditorías y procedimientos contenciosos en materia tributaria.',
@@ -76,6 +80,7 @@ export const PRACTICE_AREAS = [
   },
   {
     num: '05',
+    category: 'civil',
     title: 'Asuntos Civiles',
     short: 'Contratos, mercantil y propiedad',
     desc: 'Controversias contractuales, juicios ejecutivos mercantiles, acciones reivindicatorias y protección integral del patrimonio.',
@@ -83,6 +88,7 @@ export const PRACTICE_AREAS = [
   },
   {
     num: '06',
+    category: 'penal',
     title: 'Juicios de Amparos',
     short: 'Amparo directo e indirecto',
     desc: 'Promoción de amparo directo e indirecto contra órdenes de aprehensión, actos de autoridad y violaciones al debido proceso.',
@@ -90,6 +96,7 @@ export const PRACTICE_AREAS = [
   },
   {
     num: '07',
+    category: 'fiscal',
     title: 'Defensa ante el Órgano Interno de Control de Pemex',
     short: 'Responsabilidades administrativas',
     desc: 'Asesoría y defensa especializada en procedimientos de responsabilidad administrativa de servidores públicos y proveedores ante el OIC de Pemex.',
@@ -97,6 +104,7 @@ export const PRACTICE_AREAS = [
   },
   {
     num: '08',
+    category: 'civil',
     title: 'Asuntos Laborales',
     short: 'Conciliación y litigio laboral',
     desc: 'Representación en conflictos individuales y colectivos, audiencias de conciliación y juicios ante tribunales laborales.',
@@ -104,6 +112,7 @@ export const PRACTICE_AREAS = [
   },
   {
     num: '09',
+    category: 'civil',
     title: 'Litigio Estratégico en Deportación de Extranjeros',
     short: 'Defensa migratoria y garantías',
     desc: 'Defensa migratoria ante procedimientos administrativos de deportación y protección de garantías constitucionales.',

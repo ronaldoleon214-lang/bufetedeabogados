@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowUpRight,
   Briefcase,
@@ -13,19 +14,33 @@ import {
 } from 'lucide-react';
 import { PRACTICE_AREAS, FIRM_INFO } from '../data/firmData';
 
-const ICONS = [
-  ShieldAlert,
-  Scale,
-  FileText,
-  Landmark,
-  Gavel,
-  Shield,
-  Building2,
-  Briefcase,
-  Globe,
+const ICONS = {
+  '01': ShieldAlert,
+  '02': Scale,
+  '03': FileText,
+  '04': Landmark,
+  '05': Gavel,
+  '06': Shield,
+  '07': Building2,
+  '08': Briefcase,
+  '09': Globe,
+};
+
+const FILTERS = [
+  { id: 'all', label: 'Todas (9)' },
+  { id: 'penal', label: 'Penal & Amparo' },
+  { id: 'fiscal', label: 'Fiscal & Admin' },
+  { id: 'civil', label: 'Civil & Laboral' },
 ];
 
 export default function PracticeSection() {
+  const [filter, setFilter] = useState('all');
+
+  const visibleAreas =
+    filter === 'all'
+      ? PRACTICE_AREAS
+      : PRACTICE_AREAS.filter((a) => a.category === filter);
+
   return (
     <section
       id="servicios"
@@ -46,63 +61,84 @@ export default function PracticeSection() {
               </span>
             </h2>
           </div>
-          <p className="max-w-md text-sm text-[#FFFDF9]/75">
-            Representación técnica directa ante juzgados del fuero común en Tabasco, tribunales federales y órganos internos de control.
-          </p>
+
+          {/* Filtros interactivos por materia */}
+          <div className="flex flex-wrap gap-2 rounded-full border border-white/15 bg-white/5 p-1.5 backdrop-blur-sm">
+            {FILTERS.map((f) => {
+              const active = filter === f.id;
+              return (
+                <button
+                  key={f.id}
+                  type="button"
+                  onClick={() => setFilter(f.id)}
+                  className={`rounded-full px-4 py-2 text-xs font-bold transition ${
+                    active
+                      ? 'bg-[#F6D58E] text-[#150508] shadow-md'
+                      : 'text-[#FFFDF9]/75 hover:text-white'
+                  }`}
+                >
+                  {f.label}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {PRACTICE_AREAS.map((area, idx) => {
-            const Icon = ICONS[idx] || Scale;
-            const waUrl = `https://wa.me/${FIRM_INFO.phoneMobileRaw}?text=${encodeURIComponent(
-              `Hola Lic. Manuel Enrique Magaña, requiero asesoría en materia de: ${area.title}.`
-            )}`;
+        <motion.div layout className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <AnimatePresence mode="popLayout">
+            {visibleAreas.map((area) => {
+              const Icon = ICONS[area.num] || Scale;
+              const waUrl = `https://wa.me/${FIRM_INFO.phoneMobileRaw}?text=${encodeURIComponent(
+                `Hola Lic. Manuel Enrique Magaña, requiero asesoría en materia de: ${area.title}.`
+              )}`;
 
-            return (
-              <motion.article
-                key={area.num}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.35, delay: idx * 0.03 }}
-                className="group flex flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#F6D58E]/50 hover:bg-[#8E1322]/25"
-              >
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="font-display text-xs font-bold tracking-[0.16em] text-[#F6D58E]">
-                      {area.num} / 09
-                    </span>
-                    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#F6D58E]/10 text-[#F6D58E] transition-colors group-hover:bg-[#F6D58E] group-hover:text-[#150508]">
-                      <Icon className="h-4 w-4" />
-                    </span>
+              return (
+                <motion.article
+                  key={area.num}
+                  layout
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.96 }}
+                  transition={{ duration: 0.25 }}
+                  className="group flex flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-colors duration-300 hover:-translate-y-1 hover:border-[#F6D58E]/50 hover:bg-[#8E1322]/25"
+                >
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="font-display text-xs font-bold tracking-[0.16em] text-[#F6D58E]">
+                        {area.num} / 09
+                      </span>
+                      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#F6D58E]/10 text-[#F6D58E] transition-colors group-hover:bg-[#F6D58E] group-hover:text-[#150508]">
+                        <Icon className="h-4 w-4" />
+                      </span>
+                    </div>
+
+                    <h3 className="mt-4 font-display text-xl font-bold leading-snug text-white group-hover:text-[#F6D58E]">
+                      {area.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-[#FFFDF9]/75">
+                      {area.desc}
+                    </p>
                   </div>
 
-                  <h3 className="mt-4 font-display text-xl font-bold leading-snug text-white group-hover:text-[#F6D58E]">
-                    {area.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#FFFDF9]/75">
-                    {area.desc}
-                  </p>
-                </div>
-
-                <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-4">
-                  <span className="text-[11px] font-medium text-[#F6D58E]/75">
-                    {area.highlights[0]}
-                  </span>
-                  <a
-                    href={waUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-bold text-[#F6D58E] transition group-hover:translate-x-0.5"
-                  >
-                    <span>Consultar</span>
-                    <ArrowUpRight className="h-3.5 w-3.5" />
-                  </a>
-                </div>
-              </motion.article>
-            );
-          })}
-        </div>
+                  <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-4">
+                    <span className="text-[11px] font-medium text-[#F6D58E]/75">
+                      {area.highlights[0]}
+                    </span>
+                    <a
+                      href={waUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-bold text-[#F6D58E] transition group-hover:translate-x-0.5"
+                    >
+                      <span>Consultar</span>
+                      <ArrowUpRight className="h-3.5 w-3.5" />
+                    </a>
+                  </div>
+                </motion.article>
+              );
+            })}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );

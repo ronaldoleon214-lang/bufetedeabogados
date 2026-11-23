@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bufetedeabogados.pages.dev/sitemap.xml
