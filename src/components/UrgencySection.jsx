@@ -46,9 +46,9 @@ export default function UrgencySection() {
   return (
     <section className="relative overflow-hidden bg-[#F2EBE0] py-20 lg:py-24 border-y border-[#191314]/10">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-stretch">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
           {/* Columna izquierda: Título + selector de escenarios */}
-          <div className="lg:col-span-5 flex flex-col justify-between">
+          <div className="lg:col-span-5 flex flex-col gap-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-[0.16em] text-[#8E1322]">
                 Orientación por escenario
@@ -62,7 +62,7 @@ export default function UrgencySection() {
               </p>
             </div>
 
-            <div className="mt-8 space-y-3">
+            <div className="space-y-3">
               {URGENCY_SCENARIOS.map((item) => {
                 const isSelected = item.id === activeId;
                 const Icon = SCENARIO_META[item.id].icon;
