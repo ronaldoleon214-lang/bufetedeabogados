@@ -13,6 +13,7 @@ import { URGENCY_SCENARIOS, FIRM_INFO } from '../data/firmData';
 const SCENARIO_META = {
   penal: {
     icon: ShieldAlert,
+    sub: 'Detenciones, citatorios y órdenes de aprehensión',
     steps: [
       'Conserva la calma y ejerce tu derecho a no declarar sin abogado presente.',
       'Comunica de inmediato la ubicación, juzgado o fiscalía donde se encuentra el asunto.',
@@ -21,6 +22,7 @@ const SCENARIO_META = {
   },
   fiscal: {
     icon: Landmark,
+    sub: 'Créditos fiscales, multas, clausuras y OIC Pemex',
     steps: [
       'No dejes vencer los plazos legales de notificación, requerimiento o multa.',
       'Reúne el oficio, crédito fiscal o citatorio emitido por la autoridad.',
@@ -29,6 +31,7 @@ const SCENARIO_META = {
   },
   patrimonial: {
     icon: Scale,
+    sub: 'Contratos, propiedad, amparos y materia laboral',
     steps: [
       'Recopila contratos, escrituras, pagarés o demandas notificadas.',
       'Analizamos la vía procesal más rápida para proteger tus bienes o derechos.',
@@ -44,65 +47,74 @@ export default function UrgencySection() {
   const waUrl = `https://wa.me/${FIRM_INFO.phoneMobileRaw}?text=${encodeURIComponent(current.whatsappText)}`;
 
   return (
-    <section className="relative overflow-hidden bg-[#F2EBE0] py-20 lg:py-24 border-y border-[#191314]/10">
+    <section className="relative overflow-hidden bg-[#F2EBE0] py-16 lg:py-20 border-y border-[#191314]/10">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-          {/* Columna izquierda: Título + selector de escenarios */}
-          <div className="lg:col-span-5 flex flex-col gap-6">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-[0.16em] text-[#8E1322]">
-                Orientación por escenario
-              </span>
-              <h2 className="mt-3 font-display text-3xl font-extrabold leading-[1.06] tracking-tight text-[#191314] sm:text-4xl">
-                ¿Cuál es tu{' '}
-                <span className="text-[#8E1322]">situación actual?</span>
-              </h2>
-              <p className="mt-3 text-sm text-[#5A4E4E]">
-                Elige el escenario más cercano a tu caso para ver el protocolo de atención inmediata.
-              </p>
-            </div>
+        <div className="flex flex-wrap items-end justify-between gap-4 border-b border-[#191314]/10 pb-6">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-[0.16em] text-[#8E1322]">
+              Orientación por escenario
+            </span>
+            <h2 className="mt-2 font-display text-3xl font-extrabold leading-tight tracking-tight text-[#191314] sm:text-4xl">
+              ¿Cuál es tu <span className="text-[#8E1322]">situación actual?</span>
+            </h2>
+          </div>
+          <p className="max-w-md text-sm text-[#5A4E4E]">
+            Elige el escenario más cercano a tu caso para conocer el protocolo de atención inmediata.
+          </p>
+        </div>
 
-            <div className="space-y-3">
-              {URGENCY_SCENARIOS.map((item) => {
-                const isSelected = item.id === activeId;
-                const Icon = SCENARIO_META[item.id].icon;
-                return (
-                  <button
-                    key={item.id}
-                    type="button"
-                    onClick={() => setActiveId(item.id)}
-                    className={`flex w-full items-center justify-between rounded-2xl px-5 py-4 text-left transition-all ${
-                      isSelected
-                        ? 'bg-[#8E1322] text-[#FFFDF9] shadow-lg shadow-[#8E1322]/20'
-                        : 'bg-[#FFFDF9] text-[#191314] border border-[#191314]/10 hover:border-[#8E1322]/40'
-                    }`}
-                  >
-                    <div className="flex items-center gap-3.5">
-                      <span
-                        className={`flex h-9 w-9 items-center justify-center rounded-xl ${
-                          isSelected
-                            ? 'bg-[#F6D58E]/20 text-[#F6D58E]'
-                            : 'bg-[#FAF6EE] text-[#8E1322]'
-                        }`}
-                      >
-                        <Icon className="h-4 w-4" />
-                      </span>
-                      <span className="font-display text-base font-bold">
+        <div className="mt-8 grid gap-6 lg:grid-cols-12 lg:items-stretch">
+          {/* Columna izquierda: 3 botones enriquecidos ocupando el 100% de la altura */}
+          <div className="lg:col-span-5 grid grid-rows-3 gap-3">
+            {URGENCY_SCENARIOS.map((item) => {
+              const isSelected = item.id === activeId;
+              const info = SCENARIO_META[item.id];
+              const Icon = info.icon;
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => setActiveId(item.id)}
+                  className={`flex w-full items-center justify-between gap-4 rounded-2xl px-5 py-4 text-left transition-all ${
+                    isSelected
+                      ? 'bg-[#8E1322] text-[#FFFDF9] shadow-lg shadow-[#8E1322]/20'
+                      : 'bg-[#FFFDF9] text-[#191314] border border-[#191314]/10 hover:border-[#8E1322]/40'
+                  }`}
+                >
+                  <div className="flex items-center gap-3.5 min-w-0">
+                    <span
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${
+                        isSelected
+                          ? 'bg-[#F6D58E]/20 text-[#F6D58E]'
+                          : 'bg-[#FAF6EE] text-[#8E1322]'
+                      }`}
+                    >
+                      <Icon className="h-4 w-4" />
+                    </span>
+                    <div className="min-w-0">
+                      <span className="block font-display text-base font-bold leading-snug">
                         {item.label}
                       </span>
+                      <span
+                        className={`block truncate text-xs mt-0.5 ${
+                          isSelected ? 'text-[#F6D58E]/85' : 'text-[#5A4E4E]'
+                        }`}
+                      >
+                        {info.sub}
+                      </span>
                     </div>
-                    <ArrowRight
-                      className={`h-4 w-4 transition-transform ${
-                        isSelected ? 'translate-x-0.5 text-[#F6D58E]' : 'text-[#5A4E4E]'
-                      }`}
-                    />
-                  </button>
-                );
-              })}
-            </div>
+                  </div>
+                  <ArrowRight
+                    className={`h-4 w-4 shrink-0 transition-transform ${
+                      isSelected ? 'translate-x-0.5 text-[#F6D58E]' : 'text-[#5A4E4E]'
+                    }`}
+                  />
+                </button>
+              );
+            })}
           </div>
 
-          {/* Columna derecha: Panel de protocolo y acción inmediata */}
+          {/* Columna derecha: Panel de protocolo alineado exactamente en altura */}
           <div className="lg:col-span-7 flex">
             <AnimatePresence mode="wait">
               <motion.div
@@ -111,7 +123,7 @@ export default function UrgencySection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.22 }}
-                className="relative flex w-full flex-col justify-between overflow-hidden rounded-3xl bg-[#150508] p-8 text-[#FFFDF9] shadow-2xl sm:p-10"
+                className="relative flex w-full flex-col justify-between overflow-hidden rounded-2xl bg-[#150508] p-7 text-[#FFFDF9] shadow-2xl sm:p-8"
               >
                 <img
                   src="/img/editorial-despacho.jpg"
@@ -126,14 +138,14 @@ export default function UrgencySection() {
                     Protocolo recomendado · {current.label}
                   </span>
 
-                  <h3 className="mt-5 font-display text-2xl font-bold leading-snug text-white sm:text-3xl">
+                  <h3 className="mt-4 font-display text-2xl font-bold leading-snug text-white">
                     {current.headline}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[#FFFDF9]/80">
+                  <p className="mt-2 text-sm leading-relaxed text-[#FFFDF9]/80">
                     {current.note}
                   </p>
 
-                  <div className="mt-6 space-y-3 border-t border-white/10 pt-6">
+                  <div className="mt-5 space-y-2.5 border-t border-white/10 pt-4">
                     {meta.steps.map((step, i) => (
                       <div key={step} className="flex items-start gap-3">
                         <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#DFAA54]/20 font-display text-xs font-bold text-[#F6D58E]">
@@ -145,19 +157,19 @@ export default function UrgencySection() {
                   </div>
                 </div>
 
-                <div className="relative z-10 mt-8 flex flex-wrap gap-3 border-t border-white/10 pt-6">
+                <div className="relative z-10 mt-6 flex flex-wrap gap-3 border-t border-white/10 pt-5">
                   <a
                     href={waUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#F6D58E] to-[#DFAA54] px-6 py-3.5 text-sm font-bold text-[#150508] shadow-lg transition hover:-translate-y-0.5"
+                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#F6D58E] to-[#DFAA54] px-6 py-3 text-sm font-bold text-[#150508] shadow-lg transition hover:-translate-y-0.5"
                   >
                     <MessageCircle className="h-4 w-4" />
                     <span>Escribir por WhatsApp</span>
                   </a>
                   <a
                     href={`tel:+${FIRM_INFO.phoneMobileRaw}`}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition hover:border-[#F6D58E] hover:bg-white/10"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-[#F6D58E] hover:bg-white/10"
                   >
                     <PhoneCall className="h-4 w-4" />
                     <span>Llamar al despacho</span>
