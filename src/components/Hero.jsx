@@ -65,6 +65,9 @@ export default function Hero() {
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>
+            <p className="mt-4 text-xs font-medium text-[#F6D58E]/80">
+              Respuesta directa del titular · Confidencialidad garantizada · Tabasco y Fuero Federal
+            </p>
           </motion.div>
 
           {/* Tarjeta flotante de respaldo profesional (sin números crudos) */}

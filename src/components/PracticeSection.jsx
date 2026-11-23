@@ -139,6 +139,24 @@ export default function PracticeSection() {
             })}
           </AnimatePresence>
         </motion.div>
+
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#F6D58E]/25 bg-white/[0.04] px-6 py-5 backdrop-blur-sm">
+          <div>
+            <p className="font-display text-lg font-bold text-white">
+              ¿Tu caso combina materia penal, fiscal o amparo?
+            </p>
+            <p className="text-xs text-[#FFFDF9]/75">
+              Diseñamos una estrategia integral directamente con el Lic. Manuel Enrique Magaña Espinosa.
+            </p>
+          </div>
+          <a
+            href="#contacto"
+            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#F6D58E] to-[#DFAA54] px-6 py-3 text-xs font-bold text-[#150508] transition hover:-translate-y-0.5"
+          >
+            <span>Solicitar estrategia integral</span>
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
+        </div>
       </div>
     </section>
   );
