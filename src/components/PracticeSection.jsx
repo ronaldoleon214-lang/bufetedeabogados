@@ -130,7 +130,7 @@ export default function PracticeSection() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-xs font-bold text-[#F6D58E] transition group-hover:translate-x-0.5"
                     >
-                      <span>Consultar</span>
+                      <span>Contratar defensa</span>
                       <ArrowUpRight className="h-3.5 w-3.5" />
                     </a>
                   </div>
