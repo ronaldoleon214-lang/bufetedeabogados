@@ -47,7 +47,7 @@ export default function UrgencySection() {
   const waUrl = `https://wa.me/${FIRM_INFO.phoneMobileRaw}?text=${encodeURIComponent(current.whatsappText)}`;
 
   return (
-    <section className="relative overflow-hidden bg-[#F2EBE0] py-16 lg:py-20 border-y border-[#191314]/10">
+    <section className="relative overflow-hidden bg-[#F2EBE0] py-12 lg:py-14 border-y border-[#191314]/10">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-4 border-b border-[#191314]/10 pb-6">
           <div>

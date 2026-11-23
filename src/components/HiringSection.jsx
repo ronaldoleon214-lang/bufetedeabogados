@@ -48,7 +48,7 @@ export default function HiringSection() {
   )}`;
 
   return (
-    <section className="bg-[#FAF6EE] py-16 lg:py-20 border-b border-[#191314]/10">
+    <section className="bg-[#FAF6EE] py-12 lg:py-14 border-b border-[#191314]/10">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-4 border-b border-[#191314]/10 pb-6">
           <div>

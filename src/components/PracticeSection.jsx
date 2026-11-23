@@ -44,7 +44,7 @@ export default function PracticeSection() {
   return (
     <section
       id="servicios"
-      className="relative overflow-hidden bg-gradient-to-br from-[#360810] via-[#22060B] to-[#150508] py-20 text-[#FFFDF9] lg:py-24"
+      className="relative overflow-hidden bg-gradient-to-br from-[#360810] via-[#22060B] to-[#150508] py-14 text-[#FFFDF9] lg:py-16"
     >
       <div className="pointer-events-none absolute right-0 top-0 h-[420px] w-[420px] rounded-full bg-[#B51B2E]/25 blur-3xl" />
 

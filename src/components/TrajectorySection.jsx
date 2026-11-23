@@ -8,7 +8,7 @@ export default function TrajectorySection() {
   const current = TIMELINE_STEPS[activeIdx];
 
   return (
-    <section id="bufete" className="bg-[#FAF6EE] py-20 lg:py-28">
+    <section id="bufete" className="bg-[#FAF6EE] py-12 lg:py-16">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
