@@ -5,8 +5,8 @@ import { FIRM_INFO } from '../data/firmData';
 
 const NAV_LINKS = [
   { id: 'inicio', label: 'Inicio' },
-  { id: 'bufete', label: 'Trayectoria' },
-  { id: 'servicios', label: 'Práctica' },
+  { id: 'servicios', label: 'Soluciones' },
+  { id: 'bufete', label: 'Cómo trabajamos' },
   { id: 'contacto', label: 'Contacto' },
 ];
 

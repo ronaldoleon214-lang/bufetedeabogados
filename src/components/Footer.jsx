@@ -23,8 +23,8 @@ export default function Footer() {
 
           <nav className="flex flex-wrap gap-6 text-sm font-medium" aria-label="Pie de página">
             <a href="#inicio" className="hover:text-[#F6D58E]">Inicio</a>
-            <a href="#bufete" className="hover:text-[#F6D58E]">Trayectoria</a>
-            <a href="#servicios" className="hover:text-[#F6D58E]">Práctica</a>
+            <a href="#servicios" className="hover:text-[#F6D58E]">Soluciones</a>
+            <a href="#bufete" className="hover:text-[#F6D58E]">Cómo trabajamos</a>
             <a href="#contacto" className="hover:text-[#F6D58E]">Contacto</a>
           </nav>
         </div>
