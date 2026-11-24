@@ -55,22 +55,22 @@ export default function Hero() {
             <h1 className="mt-4 font-display text-4xl font-extrabold leading-[0.98] tracking-tight sm:text-5xl lg:text-[3.6rem]">
               ¿Detención, citatorio o{' '}
               <span className="bg-gradient-to-r from-[#F6D58E] via-[#DFAA54] to-[#F29C6B] bg-clip-text text-transparent">
-                problema fiscal?
+                proceso urgente?
               </span>
             </h1>
 
             <p className="mt-4 max-w-xl text-base text-[#FFFDF9]/90 sm:text-lg">
-              Actúa antes de firmar o declarar. Defensa penal, fiscal y amparo directo con el <strong>Lic. Manuel Enrique Magaña Espinosa</strong> — más de 22 años litigando en Tabasco y tribunales federales.
+              Actúa antes de firmar o declarar. Defensa penal y amparo de atención urgente con el <strong>Lic. Manuel Enrique Magaña Espinosa</strong> — más de 22 años litigando en Tabasco y tribunales federales.
             </p>
 
             <ul className="mt-5 space-y-2 text-sm text-[#FFFDF9]/85">
               <li className="flex items-center gap-2.5">
                 <CheckCircle2 className="h-4 w-4 text-[#F6D58E] shrink-0" />
-                <span>Revisión directa de tu carpeta, citatorio o multa desde la primera llamada</span>
+                <span>Revisión inmediata de tu carpeta, citatorio o detención desde la primera llamada</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <CheckCircle2 className="h-4 w-4 text-[#F6D58E] shrink-0" />
-                <span>Trato personal del titular, sin pasantes ni intermediarios</span>
+                <span>Respuesta urgente y asistencia presencial en juzgados y fiscalías</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <CheckCircle2 className="h-4 w-4 text-[#F6D58E] shrink-0" />
