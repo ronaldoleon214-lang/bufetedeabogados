@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Copy, Check, MapPin, Mail, Phone, ArrowUpRight, ChevronDown } from 'lucide-react';
+import { Copy, Check, MapPin, Mail, Phone, MessageCircle, ArrowUpRight, ChevronDown } from 'lucide-react';
 import { FIRM_INFO } from '../data/firmData';
 
 const QUICK_FAQS = [
@@ -53,30 +53,46 @@ export default function ContactSection() {
           <div className="lg:col-span-6 flex flex-col justify-between gap-4">
             <div className="grid gap-3 sm:grid-cols-2">
               <a
-                href={`tel:+${FIRM_INFO.phoneMobileRaw}`}
-                className="rounded-xl border border-[#191314]/10 bg-[#FFFDF9] p-4 transition hover:border-[#8E1322]/40"
+                href={`https://wa.me/${FIRM_INFO.phoneMobileRaw}?text=${encodeURIComponent(
+                  'Hola Lic. Manuel Enrique Magaña, quiero agendar una valoración de mi caso.'
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col justify-between rounded-xl border border-[#8E1322]/20 bg-[#8E1322] p-4 text-[#FFFDF9] transition hover:bg-[#B51B2E]"
               >
-                <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[#8E1322]">
-                  <Phone className="h-3.5 w-3.5" />
-                  <span>Móvil / WhatsApp</span>
+                <div className="flex items-center justify-between text-[11px] font-bold uppercase tracking-wider text-[#F6D58E]">
+                  <span className="inline-flex items-center gap-1.5">
+                    <MessageCircle className="h-3.5 w-3.5" />
+                    WhatsApp Directo
+                  </span>
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </div>
-                <span className="mt-2 block font-display text-2xl font-extrabold tabular-nums text-[#191314]">
-                  {FIRM_INFO.phoneMobile}
+                <span className="mt-2.5 block font-display text-xl font-extrabold">
+                  Escribir por WhatsApp
                 </span>
               </a>
 
-              <a
-                href={`tel:+${FIRM_INFO.phoneOfficeRaw}`}
-                className="rounded-xl border border-[#191314]/10 bg-[#FFFDF9] p-4 transition hover:border-[#8E1322]/40"
-              >
-                <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[#8E1322]">
+              <div className="flex flex-col justify-between rounded-xl border border-[#191314]/10 bg-[#FFFDF9] p-4">
+                <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#8E1322]">
                   <Phone className="h-3.5 w-3.5" />
-                  <span>Oficina</span>
+                  <span>Atención Telefónica</span>
                 </div>
-                <span className="mt-2 block font-display text-2xl font-extrabold tabular-nums text-[#191314]">
-                  {FIRM_INFO.phoneOffice}
-                </span>
-              </a>
+                <div className="mt-2.5 flex flex-wrap gap-2">
+                  <a
+                    href={`tel:+${FIRM_INFO.phoneMobileRaw}`}
+                    className="inline-flex items-center gap-1.5 rounded-full bg-[#150508] px-4 py-2 text-xs font-bold text-white transition hover:bg-[#8E1322]"
+                  >
+                    <span>Llama ahora</span>
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </a>
+                  <a
+                    href={`tel:+${FIRM_INFO.phoneOfficeRaw}`}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[#191314]/15 px-3.5 py-2 text-xs font-bold text-[#191314] transition hover:border-[#8E1322] hover:text-[#8E1322]"
+                  >
+                    <span>Oficina</span>
+                  </a>
+                </div>
+              </div>
             </div>
 
             <div className="rounded-xl border border-[#191314]/10 bg-[#FFFDF9] p-4 space-y-3">
