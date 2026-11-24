@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowUpRight,
   Briefcase,
@@ -44,26 +43,23 @@ export default function PracticeSection() {
   return (
     <section
       id="servicios"
-      className="relative overflow-hidden bg-gradient-to-br from-[#360810] via-[#22060B] to-[#150508] py-14 text-[#FFFDF9] lg:py-16"
+      className="bg-gradient-to-br from-[#360810] via-[#22060B] to-[#150508] py-12 text-[#FFFDF9] lg:py-14"
     >
-      <div className="pointer-events-none absolute right-0 top-0 h-[420px] w-[420px] rounded-full bg-[#B51B2E]/25 blur-3xl" />
-
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
-        <div className="flex flex-wrap items-end justify-between gap-6 border-b border-white/10 pb-8">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="flex flex-wrap items-end justify-between gap-4 border-b border-white/10 pb-5">
           <div>
             <span className="text-xs font-bold uppercase tracking-[0.16em] text-[#F6D58E]">
-              02 · Áreas de Práctica
+              Áreas de Defensa
             </span>
-            <h2 className="mt-2 font-display text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl">
-              Nueve frentes de{' '}
+            <h2 className="mt-1 font-display text-2xl font-extrabold tracking-tight sm:text-4xl">
+              Elige tu materia y{' '}
               <span className="bg-gradient-to-r from-[#F6D58E] to-[#DFAA54] bg-clip-text text-transparent">
-                defensa especializada.
+                contáctanos directo.
               </span>
             </h2>
           </div>
 
-          {/* Filtros interactivos por materia */}
-          <div className="flex flex-wrap gap-2 rounded-full border border-white/15 bg-white/5 p-1.5 backdrop-blur-sm">
+          <div className="flex flex-wrap gap-1.5 rounded-full border border-white/15 bg-white/5 p-1">
             {FILTERS.map((f) => {
               const active = filter === f.id;
               return (
@@ -71,10 +67,8 @@ export default function PracticeSection() {
                   key={f.id}
                   type="button"
                   onClick={() => setFilter(f.id)}
-                  className={`rounded-full px-4 py-2 text-xs font-bold transition ${
-                    active
-                      ? 'bg-[#F6D58E] text-[#150508] shadow-md'
-                      : 'text-[#FFFDF9]/75 hover:text-white'
+                  className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition ${
+                    active ? 'bg-[#F6D58E] text-[#150508]' : 'text-[#FFFDF9]/75 hover:text-white'
                   }`}
                 >
                   {f.label}
@@ -84,78 +78,43 @@ export default function PracticeSection() {
           </div>
         </div>
 
-        <motion.div layout className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <AnimatePresence mode="popLayout">
-            {visibleAreas.map((area) => {
-              const Icon = ICONS[area.num] || Scale;
-              const waUrl = `https://wa.me/${FIRM_INFO.phoneMobileRaw}?text=${encodeURIComponent(
-                `Hola Lic. Manuel Enrique Magaña, requiero asesoría en materia de: ${area.title}.`
-              )}`;
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {visibleAreas.map((area) => {
+            const Icon = ICONS[area.num] || Scale;
+            const waUrl = `https://wa.me/${FIRM_INFO.phoneMobileRaw}?text=${encodeURIComponent(
+              `Hola Lic. Manuel Enrique Magaña, quiero contratar defensa en: ${area.title}.`
+            )}`;
 
-              return (
-                <motion.article
-                  key={area.num}
-                  layout
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.96 }}
-                  transition={{ duration: 0.25 }}
-                  className="group flex flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-colors duration-300 hover:-translate-y-1 hover:border-[#F6D58E]/50 hover:bg-[#8E1322]/25"
-                >
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <span className="font-display text-xs font-bold tracking-[0.16em] text-[#F6D58E]">
-                        {area.num} / 09
-                      </span>
-                      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#F6D58E]/10 text-[#F6D58E] transition-colors group-hover:bg-[#F6D58E] group-hover:text-[#150508]">
-                        <Icon className="h-4 w-4" />
-                      </span>
-                    </div>
-
-                    <h3 className="mt-4 font-display text-xl font-bold leading-snug text-white group-hover:text-[#F6D58E]">
-                      {area.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-[#FFFDF9]/75">
-                      {area.desc}
-                    </p>
-                  </div>
-
-                  <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-4">
-                    <span className="text-[11px] font-medium text-[#F6D58E]/75">
-                      {area.highlights[0]}
+            return (
+              <a
+                key={area.num}
+                href={waUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col justify-between rounded-xl border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-0.5 hover:border-[#F6D58E]/60 hover:bg-[#8E1322]/30"
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-display text-xs font-bold text-[#F6D58E]">
+                      {area.num}
                     </span>
-                    <a
-                      href={waUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-xs font-bold text-[#F6D58E] transition group-hover:translate-x-0.5"
-                    >
-                      <span>Contratar defensa</span>
-                      <ArrowUpRight className="h-3.5 w-3.5" />
-                    </a>
+                    <Icon className="h-4 w-4 text-[#DFAA54]" />
                   </div>
-                </motion.article>
-              );
-            })}
-          </AnimatePresence>
-        </motion.div>
+                  <h3 className="mt-2.5 font-display text-lg font-bold text-white group-hover:text-[#F6D58E]">
+                    {area.title}
+                  </h3>
+                  <p className="mt-1 text-xs leading-relaxed text-[#FFFDF9]/70">
+                    {area.short}
+                  </p>
+                </div>
 
-        <div className="mt-8 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#F6D58E]/25 bg-white/[0.04] px-6 py-5 backdrop-blur-sm">
-          <div>
-            <p className="font-display text-lg font-bold text-white">
-              ¿Tu caso combina materia penal, fiscal o amparo?
-            </p>
-            <p className="text-xs text-[#FFFDF9]/75">
-              Diseñamos una estrategia integral directamente con el Lic. Manuel Enrique Magaña Espinosa.
-            </p>
-          </div>
-          <a
-            href="#contacto"
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#F6D58E] to-[#DFAA54] px-6 py-3 text-xs font-bold text-[#150508] transition hover:-translate-y-0.5"
-          >
-            <span>Solicitar estrategia integral</span>
-            <ArrowUpRight className="h-4 w-4" />
-          </a>
+                <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3 text-xs font-bold text-[#F6D58E]">
+                  <span>Contratar defensa</span>
+                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                </div>
+              </a>
+            );
+          })}
         </div>
       </div>
     </section>
